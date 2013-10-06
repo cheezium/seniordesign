@@ -13,9 +13,9 @@ def serialTransmit( motorInput ):
 
 	pub = rospy.Publisher('/rxtx/sendMA', UInt8MultiArray)
 	if motorInput.leftMotor == 50 and motorInput.rightMotor == 50:
-		message = struct.pack('>BBB', 123, motorInput.leftMotor, motorInput.rightMotor)
+		message = struct.pack('>BBB', 60, motorInput.leftMotor, motorInput.rightMotor)
 	else:
-		message = struct.pack('>BBB', 122, motorInput.leftMotor, motorInput.rightMotor)
+		message = struct.pack('>BBB', 65, motorInput.leftMotor, motorInput.rightMotor)
 	pub.publish( data=message )
 	#rospy.loginfo(message)
 

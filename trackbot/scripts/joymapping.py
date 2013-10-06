@@ -12,19 +12,20 @@ def mapper(joy_input):
 	""" 
 	ls_y = 1
 	rs_y = 4 
-	scale = 90
+	scale = 50
+	offset = 50
 	pub = rospy.Publisher('arbitratorJoyInput', trackbotMotors)
 	motors = trackbotMotors()
 		
 	if joy_input.axes[ls_y] > 0.0:
-		motors.leftMotor = ( ( joy_input.axes[ls_y] ) * scale ) + 90
+		motors.leftMotor = ( ( joy_input.axes[ls_y] ) * scale ) + offset
 	else:
-		motors.leftMotor = 90 - ( ( joy_input.axes[ls_y] ) * -1.0 * scale ) 
+		motors.leftMotor = offset - ( ( joy_input.axes[ls_y] ) * -1.0 * scale ) 
 
 	if joy_input.axes[rs_y] > 0.0:
-		motors.rightMotor = ( ( joy_input.axes[rs_y] ) * scale ) + 90
+		motors.rightMotor = ( ( joy_input.axes[rs_y] ) * scale ) + offset
 	else:
-		motors.rightMotor = 90 - ( ( joy_input.axes[rs_y] ) * -1.0 * scale )	
+		motors.rightMotor = offset - ( ( joy_input.axes[rs_y] ) * -1.0 * scale )	
         
 	pub.publish( motors )
      

@@ -15,6 +15,9 @@
 	<!-- Arbitrator node --> 
 	<node pkg="trackbot"  name="control_arbitrator" type="arbitrator.py" output="screen" />
 
+	<!-- Commands to Serial Node --> 
+	<node pkg="trackbot"  name="serial_mapping" type="serialmapping.py" output="screen" />
+
 
 </launch>
 
