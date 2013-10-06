@@ -1,0 +1,19 @@
+<package>
+  <description brief="trackbot">
+
+     trackbot
+
+  </description>
+  <author>Izzy</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/trackbot</url>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="rxtx"/>
+  <depend package="cereal_port"/>
+  <depend package="joy"/>
+
+</package>
+
+

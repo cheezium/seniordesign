@@ -1,0 +1,40 @@
+10
+
+dir
+70
+http://drh-robotics-ros.googlecode.com/svn/trunk/Arduino
+http://drh-robotics-ros.googlecode.com/svn
+
+
+
+2011-03-01T07:15:02.044332Z
+57
+rainer.hessmer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+68273211-c61b-7362-29f3-f04ef5221297
+
+libraries
+dir
+
+EncoderTest
+dir
+
+BatteryMonitor
+dir
+
+Robot
+dir
+

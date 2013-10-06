@@ -1,0 +1,52 @@
+10
+
+dir
+70
+http://drh-robotics-ros.googlecode.com/svn/trunk/Arduino/libraries
+http://drh-robotics-ros.googlecode.com/svn
+
+
+
+2011-03-01T06:53:55.952375Z
+56
+rainer.hessmer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+68273211-c61b-7362-29f3-f04ef5221297
+
+BatteryMonitor
+dir
+
+SpeedController
+dir
+
+digitalWriteFast
+dir
+
+Messenger
+dir
+
+RobotParams
+dir
+
+TimeInfo
+dir
+
+OdometricLocalizer
+dir
+
+QuadratureEncoder
+dir
+

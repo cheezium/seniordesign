@@ -1,0 +1,19 @@
+<package>
+  <description brief="arduo_joy">
+
+     arduo_joy
+
+  </description>
+  <author>I AM CHEESE</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/arduo_joy</url>
+  <depend package="ps3joy"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="turtlesim"/>
+  <depend package="rxtx"/>
+
+</package>
+
+

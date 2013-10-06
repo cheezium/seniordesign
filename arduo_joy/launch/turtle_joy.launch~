@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+  <include file="$(find rxtx)/launch/rxtx.launch" />
+  
+</launch>

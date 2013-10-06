@@ -1,0 +1,21 @@
+<!-- Hey, Emacs! This is an -*- xml -*- file!-->
+
+<launch>
+
+	 <!-- joy node -->
+	  <node respawn="true" pkg="joy"
+		    type="joy_node" name="hover_joy" >
+		<param name="dev" type="string" value="/dev/input/js0" />
+		<param name="deadzone" value="0.12" />
+	  </node>
+
+	<!-- Joy mapping node --> 
+	<node pkg="trackbot"  name="trackbot_joy_mapping" type="joymapping.py" output="screen" />
+
+	<!-- Arbitrator node --> 
+	<node pkg="trackbot"  name="control_arbitrator" type="arbitrator.py" output="screen" />
+
+
+</launch>
+
+
