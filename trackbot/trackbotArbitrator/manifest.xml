@@ -1,0 +1,17 @@
+<package>
+  <description brief="trackbotArbitrator">
+
+     trackbotArbitrator
+
+  </description>
+  <author>I AM CHEESE</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/trackbotArbitrator</url>
+  <depend package="trackbotCeral"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+
+</package>
+
+

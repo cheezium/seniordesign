@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /projects/ros/seniordesign/trackbot/trackbotCeral/build/devel/setup.sh

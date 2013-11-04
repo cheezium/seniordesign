@@ -1,0 +1,10 @@
+<stack>
+  <description brief="trackbot">trackbot</description>
+  <author>Isaaih Burger</author>
+  <license>MIT</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://www.imcheeseburger.com</url>
+  <depend stack="ros" /> <!-- roslib -->
+  <depend stack="ros_comm" /> <!-- std_msgs, roscpp -->
+
+</stack>

@@ -3,7 +3,7 @@
 <launch>
 	
 	<!-- rxtx -->
-	<node name="RxTx" pkg="rxtx" type="RxTx" output="screen">
+	<node name="RxTx" pkg="rxtx" type="RxTx" respawn="true" output="screen">
 	  <param name="SerialPort" value="/dev/ttyUSB0" />
 	  <param name="BaudRate" value="9600" />
 	</node>

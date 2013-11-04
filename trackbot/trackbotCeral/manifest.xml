@@ -1,0 +1,17 @@
+<package>
+  <description brief="trackbotCeral">
+
+     trackbotCeral
+
+  </description>
+  <author>I AM CHEESE</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/trackbotCeral</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+  <depend package="rxtx"/>
+
+</package>
+
+

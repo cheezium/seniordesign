@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /projects/ros/seniordesign/trackbot/trackbotJoyMapping/build/devel/setup.sh

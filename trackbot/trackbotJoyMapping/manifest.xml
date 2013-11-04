@@ -1,0 +1,18 @@
+<package>
+  <description brief="trackbotJoyMapping">
+
+     trackbotJoyMapping
+
+  </description>
+  <author>I AM CHEESE</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/trackbotJoyMapping</url>
+  <depend package="joy"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="trackbotCeral"/>
+
+</package>
+
+
