@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /projects/ros/seniordesign/trackbot/build/devel/setup.sh

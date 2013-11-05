@@ -1,0 +1,106 @@
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('ballControl')
+import rospy
+from geometry_msgs.msg import Pose2D
+from std_msgs.msg import Bool
+
+class ball_control: 
+	"""
+		Class that controls the logic associted with picking up a ball
+
+	"""
+	def __init__( self ): 
+		"""
+			Runs when the class is started
+		"""
+		
+		#publisher for control message
+		self.control_pub = rospy.Publisher('reactivecontrol/Control', Transform)
+		
+		#Forcing take over of arbitrator to switch to reactive control 
+		self.abitrator_takeover = rospy.Publisher('reactivecontrol/ArbitratorForceTakeover', Bool)
+		
+		
+
+	def start( self ): 
+		"""
+			Intializes ball control
+		"""
+
+		# Opening up nodes and such
+		rospy.init_node('Reactive_Control')    
+		rospy.Subscriber("ballLocation", IRdistance, self.__input_callback)
+		rospy.spin()
+
+	def __input_callback( self, ball_location ):
+		"""	
+			Called back whenever new data is recieved from ball_location
+		"""			
+		
+		# Calling the PD control function
+		self.__pd_control( ball_location )
+
+
+
+	def __pd_control( self, distance ): 
+		"""
+			Control using a PD controller
+			PD - Proportional Derivitive  
+
+			NOTE:
+				I term is not implemented 
+				as reactive control is not always running
+				and 'windup' could be a serious issue
+		"""
+		
+		avg_distance = self.__avg_distance( distance )
+		
+		output = 0.0
+		position = Transform()
+
+		error = avg_distance - self.setpoint
+
+		if avg_distance is not 0.0 and avg_distance < self.maxRange and avg_distance > 15 and abs( error ) > self.target_tolerance: 
+			
+			error = avg_distance - self.setpoint
+		
+			derivative = ( error - self.previous_error )
+			output = self.Kp * error + self.Kd * derivative
+
+
+			self.previous_error = error		
+
+			
+			#rospy.loginfo("Distance " + str( self.__avg_distance( distance ) ) + " Error: " + str(error) + " PD Output: " + str(position.translation.y) )
+		
+
+			self.abitrator_takeover.publish(True)
+		else:
+			
+			rospy.loginfo("No valid IR data infromation or IR data is out of range measured: " + str( avg_distance) )
+
+		if output > 1:
+			output = 1 		
+		position.translation.y = output;
+		self.__publish_position( position )
+
+
+
+
+
+	def __publish_position( self, transform_postion ):
+		"""
+			Used to publish the velocity topic
+		"""
+
+		self.control_pub.publish( transform_postion )
+
+if __name__ == '__main__':
+
+    try:
+		x = ball_conrol()
+		x.start()
+    except rospy.ROSInterruptException:
+        pass
+
+

@@ -1,0 +1,18 @@
+<package>
+  <description brief="ballControl">
+
+     ballControl
+
+  </description>
+  <author>I AM CHEESE</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ballControl</url>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="ballDetector"/>
+  <depend package="trackbotCeral"/>
+
+</package>
+
+

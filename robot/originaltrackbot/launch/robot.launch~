@@ -1,0 +1,11 @@
+<!-- Hey, Emacs! This is an -*- xml -*- file!-->
+
+<launch>
+	
+	<!-- rxtx -->
+	<node name="RxTx" pkg="rxtx" type="RxTx" output="screen">
+	  <param name="SerialPort" value="/dev/ttyUSB0" />
+	  <param name="BaudRate" value="9600" />
+	</node>
+
+</launch>
