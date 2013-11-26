@@ -1,0 +1,18 @@
+digraph G {
+"/camera_link" -> "/camera_depth_frame"[label="Broadcaster: /camera_base_link\nAverage rate: 10.194 Hz\nMost recent transform: -0.021 sec old \nBuffer length: 4.905 sec\n"];
+"/base_link" -> "/camera_link"[label="Broadcaster: /base_to_kinect_broadcaster\nAverage rate: 20.333 Hz\nMost recent transform: -0.090 sec old \nBuffer length: 4.918 sec\n"];
+"/camera_link" -> "/scanner"[label="Broadcaster: /kinect_to_laser_scan\nAverage rate: 10.194 Hz\nMost recent transform: -0.024 sec old \nBuffer length: 4.905 sec\n"];
+"/base_stabilized" -> "/base_frame"[label="Broadcaster: /base_2_base_stablized_link\nAverage rate: 10.194 Hz\nMost recent transform: -0.036 sec old \nBuffer length: 4.905 sec\n"];
+"/map" -> "/base_stabilized"[label="Broadcaster: /map_2_base_link\nAverage rate: 10.194 Hz\nMost recent transform: -0.090 sec old \nBuffer length: 4.905 sec\n"];
+"/base_frame" -> "/nav"[label="Broadcaster: /hector_mapping\nAverage rate: 39.765 Hz\nMost recent transform: -0.020 sec old \nBuffer length: 5.004 sec\n"];
+"/base_link" -> "/map"[label="Broadcaster: /kinect_to_laser_scan_transform\nAverage rate: 10.195 Hz\nMost recent transform: -0.066 sec old \nBuffer length: 4.904 sec\n"];
+"/map" -> "/scanmatcher_frame"[label="Broadcaster: /hector_mapping\nAverage rate: 30.168 Hz\nMost recent transform: 0.013 sec old \nBuffer length: 4.972 sec\n"];
+"/camera_rgb_frame" -> "/camera_rgb_optical_frame"[label="Broadcaster: /camera_base_link3\nAverage rate: 10.193 Hz\nMost recent transform: -0.053 sec old \nBuffer length: 4.905 sec\n"];
+"/camera_link" -> "/camera_rgb_frame"[label="Broadcaster: /camera_base_link1\nAverage rate: 10.195 Hz\nMost recent transform: -0.065 sec old \nBuffer length: 4.904 sec\n"];
+"/base_footprint" -> "/base_link"[label="Broadcaster: /kinect_to_laser_scan_base\nAverage rate: 10.198 Hz\nMost recent transform: -0.024 sec old \nBuffer length: 4.805 sec\n"];
+"/camera_depth_frame" -> "/camera_depth_optical_frame"[label="Broadcaster: /camera_base_link2\nAverage rate: 10.197 Hz\nMost recent transform: -0.011 sec old \nBuffer length: 4.805 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1384928842.896"[ shape=plaintext ] ;
+ }->"/base_footprint";
+}

@@ -12,3 +12,4 @@ check connection using ping and netcat
 
 check clock descrepancies 
 ntpdate -q other_computer_ip
+

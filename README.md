@@ -13,3 +13,6 @@ check connection using ping and netcat
 check clock descrepancies 
 ntpdate -q other_computer_ip
 
+Add roscore to ROS_MASTER_URI 
+export ROS_MASTER_URI=http://izzy-PC:11311
+

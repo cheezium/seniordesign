@@ -3,6 +3,18 @@ svn:wc:ra_dav:version-url
 V 40
 /svn/!svn/ver/70/trunk/ros/ardros/launch
 END
+teleop.launch
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/54/trunk/ros/ardros/launch/teleop.launch
+END
+slam.launch
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/70/trunk/ros/ardros/launch/slam.launch
+END
 teleopRobot.launch
 K 25
 svn:wc:ra_dav:version-url
@@ -38,16 +50,4 @@ K 25
 svn:wc:ra_dav:version-url
 V 57
 /svn/!svn/ver/55/trunk/ros/ardros/launch/amcl_diff.launch
-END
-teleop.launch
-K 25
-svn:wc:ra_dav:version-url
-V 54
-/svn/!svn/ver/54/trunk/ros/ardros/launch/teleop.launch
-END
-slam.launch
-K 25
-svn:wc:ra_dav:version-url
-V 52
-/svn/!svn/ver/70/trunk/ros/ardros/launch/slam.launch
 END
