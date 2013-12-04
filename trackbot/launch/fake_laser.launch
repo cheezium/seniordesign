@@ -1,0 +1,25 @@
+<!-- Hey, Emacs! This is an -*- xml -*- file!-->
+
+
+<launch>
+	  <!-- fake laser -->
+	  <node pkg="nodelet" type="nodelet" name="kinect_laser" args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet camera_nodelet_manager"> 
+		<param name="output_frame_id" value="/scanner"/>
+		<remap from="image" to="/camera/depth/image_raw"/>
+	  </node> 
+
+	 <node pkg="tf" type="static_transform_publisher" name="base_to_kinect_broadcaster" args="-0.115 0 0.226 0 0 0 base_link camera_link 100" />
+
+	<node pkg="tf" type="static_transform_publisher" name="kinect_to_laser_scan" args="0 0 0 0 0 0 camera_link scanner 100" />
+
+	<node pkg="tf" type="static_transform_publisher" name="kinect_to_laser_scan_transform" args="0 0 0 0 0 0 map base_link 100" />
+	 
+	  <!-- fake laser -->
+	  <!-- <node pkg="nodelet" type="nodelet" name="kinect_laser" args="load pointcloud_to_laserscan/CloudToScan openni_manager"> -->
+	  <!--   <param name="output_frame_id" value="/openni_depth_frame"/> -->
+	  <!--   <remap from="cloud" to="cloud_throttled"/> -->
+	  <!-- </node> -->
+
+
+</launch>
+
