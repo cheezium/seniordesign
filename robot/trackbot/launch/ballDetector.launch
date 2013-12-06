@@ -1,0 +1,15 @@
+<!-- Hey, Emacs! This is an -*- xml -*- file!-->
+
+<launch>
+  
+  <rosparam param="thresh/">
+    high: {h: 101, s: 216, v: 249}
+    low: {h: 88, s: 120, v: 94}
+  </rosparam>
+  <node name="ballDetector" pkg="ballDetector" type="ballDetector" output="screen">
+    <remap from="image" to="/camera/rgb/image_color"/>
+  </node>
+  <!--node name="ballDetectorConfig" pkg="ballDetector" type="configGUI.py"></node-->
+  
+
+</launch>

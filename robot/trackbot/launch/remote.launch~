@@ -1,0 +1,31 @@
+<!-- Hey, Emacs! This is an -*- xml -*- file!-->
+
+<launch>
+
+	 <!-- joy node -->
+	  <node respawn="true" pkg="joy"
+		    type="joy_node" name="trackbot_joy" >
+		<param name="dev" type="string" value="/dev/input/js0" />
+		<param name="deadzone" value="0.20" />
+	  </node>
+
+
+
+	<!-- Joy mapping node --> 
+	<node pkg="trackbot"  name="trackbot_joy_mapping" type="joymapping.py" output="screen" />
+
+	<!-- Arbitrator node --> 
+	<node pkg="trackbot"  name="control_arbitrator" type="arbitrator.py" output="screen" />
+
+	<!-- Commands to Serial Node --> 
+	<node pkg="trackbot"  name="serial_mapping" type="serialmapping.py" output="screen" />
+
+	<!-- Display Image from USB cam --> 
+	<!-- <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen"> -->
+	<!--    <remap from="image" to="/usb_cam/image_raw"/> -->
+	<!--</node> -->
+
+
+</launch>
+
+

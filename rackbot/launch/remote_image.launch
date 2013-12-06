@@ -1,0 +1,13 @@
+<!-- Hey, Emacs! This is an -*- xml -*- file!-->
+
+<launch>
+
+	<!-- Display Image from Kinect cam --> 
+	<node name="kinect_color_image" pkg="image_view" type="image_view" respawn="false" output="screen">
+	    <remap from="image" to="/camera/rgb/image_color"/>
+	</node>
+
+
+</launch>
+
+

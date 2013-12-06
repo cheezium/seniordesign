@@ -1,0 +1,19 @@
+<package>
+  <description brief="tfforcez">
+
+     tfforcez
+
+  </description>
+  <author>Izzy</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/tfforcez</url>
+  <depend package="rospy"/>
+  <depend package="tf"/>
+  <depend package="trackbot"/>
+  <depend package="rgbdslam"/>
+  <depend package="octomap_server"/>
+
+</package>
+
+

@@ -6,8 +6,11 @@
     <param name="config/topic_image_mono"              value="/camera/rgb/image_rect_color"/> <!--could also be color -->
     <param name="config/topic_image_depth"             value="/camera/depth_registered/image_rect"/>
     <param name="config/topic_points"                  value="/camera/depth_registered/points"/> <!--if empty, poincloud will be reconstructed from image and depth -->
-
-	<param name="config/subscriber_queue_size" value="10" />
+	<!-- <param name="config/subscriber_queue_size" value="20" /> --> <!-- Increase buffer for slow incoming network traffic -->
+	<param name="config/maximum_depth" value="4.0" /> <!-- Maximum range kinect can reliably see in meters -->
+	<param name="config/minimum_depth" value="0.2" /> <!-- Minimum range kinect can reliably see in meters -->
+	<param name="config/min_rotation_degree" value="2.5" /> <!-- Minimum degree range kinect has to move -->
+	<param name="config/octomap_online_creation" value="true" /> <!-- Generate octomap in Live time --> 
 
     <param name="config/feature_detector_type"         value="SURF"/><!-- If SIFTGPU is enabled in CMakeLists.txt, use SURF here -->
     <param name="config/feature_extractor_type"        value="SURF"/><!-- If SIFTGPU is enabled in CMakeLists.txt, use SURF here -->

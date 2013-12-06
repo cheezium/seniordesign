@@ -1,0 +1,99 @@
+#!/usr/bin/env python
+import roslib; roslib.load_manifest('trackbot')
+import rospy
+from time import sleep
+from trackbot.msg import trackbotMotors
+from sensor_msgs.msg import Joy
+
+
+class arb:
+	
+	def __init__( self ):
+		"""
+			Starts arbirator
+		"""
+		rospy.init_node('arbitrator')    
+		rospy.Subscriber("arbitratorJoyInput", trackbotMotors, self.joy_callback)
+		rospy.Subscriber("arbitratorMapInput", trackbotMotors, self.map_callback)
+		#rospy.Subscriber("arbitratorBallInput", trackbotMotors, self.joy_callback)
+		rospy.Subscriber("joy", Joy, self.__joy)
+		self.pub = rospy.Publisher('arbitratorOutput', trackbotMotors)
+
+
+		self.joyMotorInput = trackbotMotors()
+		self.mapMotorInput = trackbotMotors()
+		self.ballMotorInput = trackbotMotors()
+		self.motorInput = trackbotMotors()
+
+		self.ball = 3 
+		self.map = 2 
+		self.manual = 1
+		self.state = self.manual
+
+		self.arbitrator( )
+		
+	def arbitrator( self ):
+		"""
+			run arb
+		"""
+
+		while( not rospy.is_shutdown() ):
+
+			if self.state is self.manual:
+				self.motorInput = self.joyMotorInput
+			elif self.state is self.map:
+				self.motorInput = self.mapMotorInput
+			elif self.state is self.ball:
+				self.motorInput = self.ballMotorInput
+
+			self.pub.publish( self.motorInput )
+			sleep( 0.1) 
+		
+
+	def joy_callback(self, joy_motor_input):
+		"""
+			Joy Motor Info
+		""" 
+	
+	
+		#rospy.loginfo(motorInput)
+		self.joyMotorInput = joy_motor_input
+
+ 	def map_callback(self, map_motor_input):
+		"""
+			Map motor info
+		""" 
+	
+	
+		#rospy.loginfo(motorInput)
+		self.mapMotorInput = map_motor_input
+	   	
+
+
+	def __joy( self, data ): 
+		"""
+			Tell What State to Goto 
+		"""
+
+		if( data.buttons[13] is 1 ): 
+			self.state = self.map
+			rospy.loginfo("State= Map")
+			sleep( 0.5 )
+		elif( data.buttons[14] is 1):
+
+			#If x button turn off
+			self.state = self.manual
+			rospy.loginfo("State= Manual")
+		else: 
+			self.state = self.manual
+		
+ 
+	
+
+
+
+if __name__ == '__main__':
+    try:
+        x = arb()
+    except rospy.ROSInterruptException:
+        pass

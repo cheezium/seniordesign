@@ -12,21 +12,20 @@ def serialTransmit( motorInput ):
 	"""
 
 	pub = rospy.Publisher('/rxtx/sendMA', UInt8MultiArray)
-	startByte = 58 # ':'	
 	motorByteToSend = int( '00000000', 2 ) 
 	armByteToSend = int( '00000000', 2 ) 
 	buttonByteToSend = int( '00000000', 2 ) 
-	checksumByteToSend = 123
+	checksumByteToSend = 'A'
 
-	#rospy.loginfo("MotorByteToSend: " + str( motorByteToSend ) )
+	rospy.loginfo("MotorByteToSend: " + str( motorByteToSend ) )
 	
 	if motorInput.leftMotor > 50:
 		# Set bit to forward
-		motorByteToSend += 1 << 7
+		motorByteToSend += 1 << 8
 
 	if motorInput.rightMotor > 50: 
  		# Set bit to forward
-		motorByteToSend += 1 << 3
+		motorByteToSend += 1 << 4
 
 	# Set Mag divided into 3 quadrents, 
 	if motorInput.leftMotor < ( 50 / 3 ) or motorInput.leftMotor > ( 100 - ( 50 / 3 ) ):
@@ -39,7 +38,7 @@ def serialTransmit( motorInput ):
 	elif motorInput.leftMotor < ( ( 50 / 3 ) * 3 ) or motorInput.leftMotor > ( 100 - ( ( 50 / 3 ) * 3 ) ):
 		# Set to 2 		
 		motorByteToSend += 1 << 5	
-  
+
 	# Set Mag divided into 3 quadrents, 
 	if motorInput.rightMotor < ( 50 / 3 ) or motorInput.rightMotor > ( 100 - ( 50 / 3 ) ):
 		# Set to 3 
@@ -53,7 +52,7 @@ def serialTransmit( motorInput ):
 		motorByteToSend += 1 << 0	
 
 
-	message = struct.pack('>BBBBB', startByte, motorByteToSend, armByteToSend, buttonByteToSend, checksumByteToSend )
+	message = struct.pack('>BBBBB', ';', motorByteToSend, armByteToSend, buttonByteToSend, checksumByteToSend )
 
 
 
@@ -68,21 +67,7 @@ def serialTransmit( motorInput ):
 
 	pub.publish( data=message )
 	#rospy.loginfo(message)
-def recieveSerial( incoming_bits ): 
-	"""
-		Recieve rxtx bytes	
-	"""
-	startByte = False	
 
-	
-	for i in incoming_bits.data:
-		if i is 58:
-			startByte = True
-			rospy.loginfo("Got Start bit")
-		elif startByte:
-			startByte = False
-			if i is not 0:
-				rospy.loginfo("OH SHIT, CURRENT SPIKED!")			
 
 def recieveArbirator():
 	"""
@@ -90,7 +75,6 @@ def recieveArbirator():
 	"""
 	rospy.init_node('arbitrator')    
 	rospy.Subscriber("arbitratorOutput", trackbotMotors, serialTransmit)
-	rospy.Subscriber("rxtx/recieveMA", UInt8MultiArray, recieveSerial)
 	rospy.spin()	
 
 

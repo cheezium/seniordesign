@@ -11,10 +11,10 @@
 		<param name="frame_id" type="string" value="map" />
 		
 		<!-- maximum range to integrate (speedup, accuracy) -->
-		<param name="sensor_model/max_range" value="3.5" />
-		<!-- <param name="pointcloud_min_z" value="-0.5" /> -->
-		<!-- <param name="pointcloud_max_z" value="0.5" /> -->
-		
+		<param name="sensor_model/max_range" value="4.0" />
+		<param name="pointcloud_min_z" value="-0.5" />
+		<param name="pointcloud_max_z" value="0.5" /> 
+		<param name="config/subscriber_queue_size" value="10" />
 
 
  	   <param name="filter_ground" value="false" /><!-- who knows where the floor is? -->

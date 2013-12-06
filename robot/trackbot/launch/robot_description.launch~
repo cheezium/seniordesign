@@ -1,0 +1,5 @@
+<!-- Hey, Emacs! This is an -*- xml -*- file!-->
+
+<launch>
+   <param name="robot_description" command="../urdf/model.urdf" />
+</launch>

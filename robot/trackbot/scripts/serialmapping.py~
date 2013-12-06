@@ -26,7 +26,7 @@ def serialTransmit( motorInput ):
 
 	if motorInput.rightMotor > 50: 
  		# Set bit to forward
-		motorByteToSend += 1 << 3
+		motorByteToSend += 1 << 4
 
 	# Set Mag divided into 3 quadrents, 
 	if motorInput.leftMotor < ( 50 / 3 ) or motorInput.leftMotor > ( 100 - ( 50 / 3 ) ):
